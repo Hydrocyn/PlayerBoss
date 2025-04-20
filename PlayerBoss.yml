@@ -1,0 +1,27 @@
+XYEVOLVE:
+  Type: WITHER_SKELETON
+  Display: '&bXYEVOLVE'
+  Health: 500
+  Damage: 10
+  BossBar:
+    Enabled: true
+    Title: '&4[&0Kasli&ethe&cBane&4]&9&lXY'
+    Range: 45
+    Color: BLUE
+    Style: SOLID
+  Skills:
+  - speak{m="None may challenge the Skeleton King!";cooldown=20} @PlayersInRadius{r=40}
+    ~onCombat 0.2
+  - speak{m="Ahahahahah! Die, <trigger.name>!"} @PlayersInRadius{r=40} ~onPlayerKill
+  - skill{s=SmashAttack} @target 0.2
+  Equipment:
+  - XYCrown HEAD
+  - XYSword HAND
+  Drops:
+  - SkeletonKingDrops
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  Disguise: XYEVOLVE
