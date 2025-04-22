@@ -13,15 +13,43 @@ XYEVOLVE:
   - speak{m="None may challenge the Skeleton King!";cooldown=20} @PlayersInRadius{r=40}
     ~onCombat 0.2
   - speak{m="Ahahahahah! Die, <trigger.name>!"} @PlayersInRadius{r=40} ~onPlayerKill
+  - sendtitle{title="&9&lFIGHT!";d=60} @PlayersInRadius{r=30} ~onSpawn
+  - sendtitle{title="&9&lSee u next time";d=60} @PlayersInRadius{r=30} ~onDeath
+  #- throw{velocity=13;velocityY=3} @PlayersInRadius{r=20}
+  #- effect:particles{p=hugeexplosion;amount=3;speed=0;hR=0.2;vR=0.2} @PlayersInRadius{r=20}
+  #- heal{a=7;overheal=false} @self ~onTimer:20 <0.15
+  #- potion{t=Increase_Damage;d=100;l=1} ~onTimer:200
   - skill{s=SmashAttack} @target 0.2
+  #- message{cooldown=30;m="<mob.name><&co> Hahahah! I will crush you, fool!"} @PlayersInRadius{r=40}
   Equipment:
   - XYCrown HEAD
   - XYSword HAND
+  - SHIELD OFFHAND
+  #- DIAMOND_CHESTPLATE{name="XYs armor";lore="wow";enchants=PROTECTION_ENVIRONMENTAL:4, DURABILITY:3, MENDING:1, THORNS:2} CHEST
   Drops:
+  - exp 6000
   - SkeletonKingDrops
+  #- DIAMOND_CHESTPLATE{name="XYs armor";lore="wow";enchants=PROTECTION_ENVIRONMENTAL:4, DURABILITY:3, MENDING:1, THORNS:2} CHEST
+  KillMessages:
+  - '<target.name> killed by <caster.name>'
+  - '<target.name> cant fight with <caster.name>'
+  AITargetSelectors:
+  - clear #Clear the original actuator
+  - attacker
+  - players
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll #random walk
+  DamageModifiers:
+  - ProjectILE 0.75
+  - ENTITY_ATTACK 0.75
   Options:
     AlwaysShowName: true
     MovementSpeed: 0.2
     MaxCombatDistance: 25
     PreventOtherDrops: true
+    #PreventRandomEquipment: true
+    #PreventItemPickup: true
+    #PreventSunburn: true
   Disguise: XYEVOLVE

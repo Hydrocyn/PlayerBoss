@@ -27,7 +27,13 @@ AngrySludgePoison:
   - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOffset=0.5}
     @Self
 
-爆炸特效:
+#curse all enemies
+#Curse:
+  #Cooldown: 20
+  #Conditions:
+  #Skills:
+
+MagicExplosion:
   Skills:  
   - effect:explosion
   - effect:particles{p=flame;a=50;hs=3;vs=3;s=0.1;repeat=2;repeatInterval=1}
